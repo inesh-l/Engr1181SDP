@@ -13,4 +13,7 @@ splashy = 1;
 image_1 = splashy;
 drawScene(splashscreen,splashy)
 
-[r,c,b] = getMouseInput(splashscreen);
+[click] = getKeyboardInput(splashscreen);
+%if click == 
+
+
