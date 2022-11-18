@@ -15,5 +15,8 @@ controls=5:11;
 board=empty * ones(7,7);
 board(1,:)=controls;
 % Draw the board itself
-drawScene(scene,board);
+drawScene(board_scene,board);
 % Drop a chip
+colSelect = getKeyboardInput(board_scene);
+fprintf(colSelect);
+for i=1:1:
