@@ -14,6 +14,11 @@ image_1 = splashy;
 drawScene(splashscreen,splashy)
 
 [click] = getKeyboardInput(splashscreen);
-%if click == 
+if click == 1
 
+    sSize = 63;
+zFactor = 5;
+BGC = [167 177 183];
+
+onePlayerGame = simpleGameEngine('CattleShip Splash.png',sSize,sSize,zFactor,BGC);
 
