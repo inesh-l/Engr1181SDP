@@ -1,15 +1,10 @@
-function [CR] = Randomizer()
+function [CR] = CS_Randomizer()
 
 %function will return a 7 by 7 of zeros
 CR = zeros(7,7);
 
-for cow_grass_count = 1:21
-    
-    cow_placed =  false;
-    while ~cow_placed
-        grid = randi([1 49]);
+cow_grass_count = 1:49;
 
-
-
-    end
+for k= size(cow_grass_count)
+    cow_grass_count(k) = randi (0,1,49);
 end

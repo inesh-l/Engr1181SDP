@@ -22,23 +22,30 @@ sSize = 63;
 zFactor = 5;
 BGC = [167 177 183];
 
+%WARNING, sprite sheet not completed, game will not run
 Game = simpleGameEngine('PlaceholderSheet',sSize,sSize,zFactor,BGC);
 
 %Game Objects
 blank_sprite = 1;
-grass_s = 2;
-left_cow_sprite = 3;
-horiz_cow_sprite = 4;
-right_cow_sprite = 5;
-top_cow_sprite = 6;
-vert_cow_sprite = 7;
-bot_cow_sprite = 8;
-hit_steak_sprite = 9;
-dirt_sprite = 10;
+grass_sprite = 2;
+cow_grass = 3;
+hit_steak_sprite = 4;
+dirt_sprite = 5;
 
 %Creating the Board
+board = grass_sprite*ones(7,7);
+drawscene(board,Game)
 
+%Call function to generate cow placements
+cow = 
 
+% Gameplay loop
+
+% Create dirt sprite if grass was hit (value of 0)
+
+% Create steak sprite if cow was hit (value of 1)
+
+%
 
 
 

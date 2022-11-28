@@ -33,9 +33,19 @@ hit_steak_sprite = 4;
 dirt_sprite = 5;
 
 %Creating the Board
-board = grass_sprite*ones(10,21);
+board = grass_sprite*ones(7,7);
+drawscene(board,Game)
 
+%Call function to generate cow placements
+cow = 
 
+% Gameplay loop
+
+% Create dirt sprite if grass was hit (value of 0)
+
+% Create steak sprite if cow was hit (value of 1)
+
+%
 
 
 
