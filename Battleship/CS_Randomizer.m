@@ -1,10 +1,17 @@
-function [CR] = CS_Randomizer()
+function CR = CS_Randomizer(~)
 
-%function will return a 7 by 7 of zeros and ones
+%function will return a 7 by 7 of zeros and twos
 
 cowCount = zeros(7);
- while k == size(cowCount)
-     cowCount(k) = randi([0,1],[7,7]);
- end
+CR_1 = zeros(7);
+A = randi([0,1],[7,7]);
 
-%cowCount= randi([0,1],[7,7]);
+for k = size(cowCount)
+    b(k) = k/k+1;
+    CR_1(:,:,k) = b(k)*A;
+end
+
+CR = CR_1(:,:,7);
+
+end
+
