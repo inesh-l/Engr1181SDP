@@ -11,7 +11,6 @@ splashscreen = simpleGameEngine('CattleShip Splash.png',sSize,sSize,zFactor,BGC)
 
 splashy = 1;
 
-image_1 = splashy;
 drawScene(splashscreen,splashy)
 
 [click] = getKeyboardInput(splashscreen);
@@ -37,7 +36,7 @@ board = grass_sprite*ones(7,7);
 drawscene(board,Game)
 
 %Call function to generate cow placements
-cow = 
+cow = CS_Randomizer;
 
 % Gameplay loop
 
@@ -45,7 +44,12 @@ cow =
 
 % Create steak sprite if cow was hit (value of 1)
 
-%
+%Win Screen when all cows hit (placeholder)
+splashscreen = simpleGameEngine('WinScreen.png',sSize,sSize,zFactor,BGC);
+
+win = 1;
+
+drawscene(win,winscreen)
 
 
 
