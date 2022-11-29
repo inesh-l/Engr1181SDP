@@ -25,8 +25,8 @@ BGC = [167 177 183];
 main_game = simpleGameEngine('SpriteSheet.png',sSize_2,sSize_2,zFactor_2,BGC);
 
 %Game Objects
-grass_sprite = 1;
-cow_grass = 2;
+cow_grass = 1;
+grass_sprite = 2;
 tall_grass  = 3;
 dirt_sprite = 4;
 hit_steak_sprite = 5;
@@ -39,19 +39,22 @@ drawScene(main_game,board_image)
 board_image2 = CS_Randomizer;
 drawScene(main_game,board_image2)
 
+Gameplay()
+
 %Eventually gameplay loop, creating the change that happens on fire
-[r, c] = getMouseInput(main_game);
+% [r, c] = getMouseInput(main_game);
+% 
+% board_change = board_image2;
+% 
+% while board_change == board_image2
+% if board_change(r,c) == 2
+%     board_change(r,c) = 5; 
+% else 
+%     board_change(r,c) = 4;
+% end
+% drawScene(main_game,board_change)
+% end
 
-board_change = board_image2;
-
-while board_change == board_image2
-if board_change(r,c) == 2
-    board_change(r,c) = 5; 
-else 
-    board_change(r,c) = 4;
-end
-drawScene(main_game,board_change)
-end
 % Gameplay loop
 % [click] = getMouseInput(Game);
 % if click = cow_grass
