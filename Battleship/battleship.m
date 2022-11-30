@@ -54,7 +54,7 @@ board_change = board_image2;
 %Change placement of block
 
 turn= 15;
-count = 0;
+score = 0;
 while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
@@ -81,7 +81,7 @@ drawScene(main_game,board_change)
 end
 
 turn= 15;
-count = 0;
+score = 0;
 while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
@@ -89,7 +89,7 @@ if board_change(r,c) == 3
     pause(.5)
     board_change(r,c) = 7;
     drawScene(main_game,board_change)
-    count= count+1;
+    score= score+1;
     xlabel(turn)
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
@@ -97,7 +97,7 @@ elseif board_change(r,c) == 5
     pause(.5)
     board_change(r,c) = 7;
     drawScene(main_game,board_change)
-    count = count+1;
+    score = score+1;
     xlabel(turn)
 else 
     board_change(r,c) = 6;
@@ -108,14 +108,19 @@ drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
  turn = turn-1;
 end
+getMouseInput(main_game)
 
 
 %Win Screen when all cows hit (placeholder)
-% splashscreen = simpleGameEngine('WinScreen.png',sSize,sSize,zFactor,BGC);
-% 
-% win = 1;
-% 
-% drawScene(win,winscreen)
+win_screen = simpleGameEngine('Win Screen.png',sSize,sSize,zFactor,BGC);
+
+sSize = 255;
+zFactor = 5;
+BGC = [167 177 183];
+
+win = 1;
+xlabel('YOUR SCORE',score)
+drawScene(winscreen,win)
 
 
 
