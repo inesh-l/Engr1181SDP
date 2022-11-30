@@ -41,21 +41,22 @@ drawScene(main_game,board_image2)
 
 %Gameplay()
 
-board_change = board_image2;
 
-GM = 1;
-while true
+
 [r, c] = getMouseInput(main_game);
 
-while str2double(r,c) == str2double(r,c)
+board_change = board_image2;
+
+while count(1,1) > 0
 if board_change(r,c) == 1
     board_change(r,c) = 5; 
 else 
     board_change(r,c) = 4;
-end 
-drawScene(main_game,board_change)
 end
-end 
+drawScene(main_game,board_change)
+[r, c] = getMouseInput(main_game)
+end
+
 
           % turn = 3;
 % while true

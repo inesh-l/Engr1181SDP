@@ -41,18 +41,32 @@ drawScene(main_game,board_image2)
 
 %Gameplay()
 
+
 [r, c] = getMouseInput(main_game);
 
 board_change = board_image2;
 
-while board_change == board_image2
+A =  board_change ;
+   x = unique(A);
+   N = numel(x);
+   count = zeros(N,1);
+   for k = 1:N
+      count(k) = sum (A==x(k),"all");
+   end
+   disp([ x(:) count ]);
+
+
+while count(1,1) >0
 if board_change(r,c) == 1
     board_change(r,c) = 5; 
 else 
     board_change(r,c) = 4;
 end
 drawScene(main_game,board_change)
+[r, c] = getMouseInput(main_game);
+ count(1,1)=count(1,1)-1
 end
+
 
 
           % turn = 3;
