@@ -1,6 +1,10 @@
 clc
 clear
 
+%Initialize Music
+yeehaw = 1;
+background_music(yeehaw)
+
 %Initializing
 sSize = 255;
 zFactor = 5;
@@ -52,6 +56,7 @@ board_change = board_image2;
 
 
 %Change placement of block
+MOO = 1;
 
 turn= 15;
 score = 0;
@@ -59,15 +64,17 @@ while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
     drawScene(main_game,board_change)
-    pause(2)
+    pause(1)
     board_change(r,c) = 3;
+    sound_bite(MOO)
     drawScene(main_game,board_change)
     xlabel(turn)
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
     drawScene(main_game,board_change)
-    pause(2)
+    pause(1)
     board_change(r,c) = 5;
+    sound_bite(MOO)
     drawScene(main_game,board_change)
     xlabel(turn)
 else 
@@ -80,22 +87,25 @@ drawScene(main_game,board_change)
  turn = turn-1;
 end
 
+sizzle = 2;
 turn= 15;
 score = 0;
 while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
     drawScene(main_game,board_change)
-    pause(.5)
+    pause(.2)
     board_change(r,c) = 7;
+    sound_bite2(sizzle)
     drawScene(main_game,board_change)
     score= score+1;
     xlabel(turn)
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
     drawScene(main_game,board_change)
-    pause(.5)
+    pause(.2)
     board_change(r,c) = 7;
+    sound_bite2(sizzle)
     drawScene(main_game,board_change)
     score = score+1;
     xlabel(turn)
@@ -112,15 +122,15 @@ getMouseInput(main_game)
 
 
 %Win Screen when all cows hit (placeholder)
-win_screen = simpleGameEngine('Win Screen.png',sSize,sSize,zFactor,BGC);
-
-sSize = 255;
-zFactor = 5;
-BGC = [167 177 183];
-
-win = 1;
-xlabel('YOUR SCORE',score)
-drawScene(winscreen,win)
+% win_screen = simpleGameEngine('Win Screen.png',sSize,sSize,zFactor,BGC);
+% 
+% sSize = 255;
+% zFactor = 5;
+% BGC = [167 177 183];
+% 
+% win = 1;
+% xlabel('YOUR SCORE',score)
+% drawScene(winscreen,win)
 
 
 
