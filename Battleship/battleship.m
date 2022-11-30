@@ -39,7 +39,40 @@ drawScene(main_game,board_image)
 board_image2 = CS_Randomizer;
 drawScene(main_game,board_image2)
 
-Gameplay()
+%Gameplay()
+
+[r, c] = getMouseInput(main_game);
+
+board_change = board_image2;
+
+while board_change == board_image2
+if board_change(r,c) == 1
+    board_change(r,c) = 5; 
+else 
+    board_change(r,c) = 4;
+end
+drawScene(main_game,board_change)
+end
+
+
+          % turn = 3;
+% while true
+%     colSelect = getKeyboardInput(board_scene);
+%     colSelect = str2num(colSelect);
+%     for i=7:-1:1
+%         if board(i,colSelect) == 2
+%             board(i,colSelect) = turn;
+%             drawScene(board_scene,board);
+%             break
+%         end
+%     end
+%     if turn ==3
+%         turn = 4;
+%     elseif turn == 4
+%             turn = 3;
+%     end
+% end
+
 
 %Eventually gameplay loop, creating the change that happens on fire
 % [r, c] = getMouseInput(main_game);
@@ -56,16 +89,8 @@ Gameplay()
 % end
 
 % Gameplay loop
-% [click] = getMouseInput(Game);
-% if click = cow_grass
-% 
-% else
-% end
 
     
-% Create dirt sprite if grass was hit (value of 0)
-
-% Create steak sprite if cow was hit (value of 1)
 
 %Win Screen when all cows hit (placeholder)
 % splashscreen = simpleGameEngine('WinScreen.png',sSize,sSize,zFactor,BGC);
