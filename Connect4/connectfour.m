@@ -20,9 +20,13 @@ board()
 % Drop a chip
 turn = 3;
 while true
+    won = checkWin(board)
+    if won == true
+        break;
+    end
     colSelect = getKeyboardInput(board_scene);
-    colSelect = str2num(colSelect);
-    for i=7:-1:1
+    colSelect = str2num(colSelect); 
+    for i=7:-1:2
         if board(i,colSelect) == 2
             board(i,colSelect) = turn;
             drawScene(board_scene,board);
@@ -34,6 +38,7 @@ while true
     elseif turn == 4
             turn = 3;
     end
+    
 end
 
 
