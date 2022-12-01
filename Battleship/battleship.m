@@ -1,5 +1,7 @@
 clc
 clear
+close all
+clear sound
 
 %Initialize Music
 yeehaw = 1;
@@ -42,9 +44,10 @@ board_image = grass_sprite*ones(7,7);
 drawScene(main_game,board_image)
 
 %Call function to generate cow placements
+turn= 15;
 board_image2 = CS_Randomizer;
 drawScene(main_game,board_image2)
-
+title("Turns Remaining " + turn)
 %Gameplay Loop
 
 
@@ -57,34 +60,34 @@ board_change = board_image2;
 
 %Change placement of block
 MOO = 1;
-
-turn= 15;
 score = 0;
 while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
+    turn = turn-1;
+    title("Turns Remaining " + turn)
     drawScene(main_game,board_change)
+    sound_bite(MOO)
     pause(1)
     board_change(r,c) = 3;
-    sound_bite(MOO)
     drawScene(main_game,board_change)
-    xlabel(turn)
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
+    turn = turn-1;
+    title("Turns Remaining " + turn)
     drawScene(main_game,board_change)
+    sound_bite(MOO)
     pause(1)
     board_change(r,c) = 5;
-    sound_bite(MOO)
     drawScene(main_game,board_change)
-    xlabel(turn)
 else 
     board_change(r,c) = 6;
-    xlabel(turn)
+    turn = turn - 1;
+    title("Turns Remaining " + turn)
 end 
 
 drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
- turn = turn-1;
 end
 
 sizzle = 2;
@@ -93,36 +96,37 @@ score = 0;
 while turn >0
 if board_change(r,c) == 3
     board_change(r,c) = 1; 
+    turn = turn-1;
+    title("Turns Remaining " + turn)
     drawScene(main_game,board_change)
+    sound_bite2(sizzle)
     pause(.2)
     board_change(r,c) = 7;
-    sound_bite2(sizzle)
     drawScene(main_game,board_change)
     score= score+1;
-    xlabel(turn)
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
     drawScene(main_game,board_change)
+    turn = turn-1;
+    title("Turns Remaining " + turn)
+    sound_bite2(sizzle)
     pause(.2)
     board_change(r,c) = 7;
-    sound_bite2(sizzle)
     drawScene(main_game,board_change)
     score = score+1;
-    xlabel(turn)
 else 
     board_change(r,c) = 6;
-    xlabel(turn)
+    turn = turn-1;
+    title("Turns Remaining " + turn)
 end 
 
 drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
- turn = turn-1;
 end
 Transit = getMouseInput(main_game);
 
 
 %Win Screen when all cows hit (placeholder)
-
 
 sSize3 = 255;
 zFactor3 = 5;
@@ -131,28 +135,17 @@ BGC = [167 177 183];
 win_screen = simpleGameEngine('Win Screen.png',sSize3,sSize3,zFactor3,BGC);
 
 win = 1;
-%xlabel('YOUR SCORE',score)
-drawScene(winscreen,win)
 
+drawScene(win_screen,win)
+title("Your Score is " + score);
 
+ending = getMouseInput(win_screen);
+while ending == 1
+    clear sound
+    close all
+end 
         
 
-%Gameplay main code, saving in case of deletion
-% [r, c] = getMouseInput(main_game);
-% 
-% board_change = board_image2;
-% 
-% while board_change == board_image2
-% if board_change(r,c) == 2
-%     board_change(r,c) = 5; 
-% else 
-%     board_change(r,c) = 4;
-% end
-% drawScene(main_game,board_change)
-% end
-
-
-    
 
 
 
