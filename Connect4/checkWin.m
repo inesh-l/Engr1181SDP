@@ -52,13 +52,6 @@ function gameWon = checkWin(board)
         end
     end
     % DIAG LR
-    %start at row 5
-    %subtract one from row, add one to column to iterate
-    % go until row = 7
-    % Switch to iterate column and then row
-    % Start at column 2, row 7
-    % Iterate by subtracting row, adding column
-    % Go until column 4 is complete
     for i=5:7
         if won == true
             break;
