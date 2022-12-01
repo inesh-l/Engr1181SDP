@@ -37,7 +37,7 @@ function gameWon = checkWin(board)
             if board(i,j) == startChip
                 streak = streak + 1;
             else
-                streak = 1
+                streak = 1;
                 if startChip == 4
                     startChip = 3;
                 elseif startChip == 3
@@ -59,10 +59,53 @@ function gameWon = checkWin(board)
     % Iterate by subtracting row, adding column
     % Go until column 4 is complete
     for i=5:7
+        if won == true
+            break;
+        end
+        streak = 0;
+        startChip = 3;
+
         for j=1:i-1
-            
+            if board(i-(j-1),j) == startChip
+                streak = streak + 1;
+            else
+                streak = 1;
+                if startChip == 4
+                    startChip = 3;
+                elseif startChip == 3
+                    startChip = 4;
+                end
+            end
+            if streak == 4
+                won = true;
+                break;
+            end
         end
     end
-
+    for i=2:4
+        if won == true
+            break;
+        end
+        streak = 0;
+        startChip = 3;
+        for j=i:7
+            if board(7-(j-i), j) == startChip
+                streak = streak + 1
+            else
+                streak = 1;
+                if startChip == 4
+                    startChip = 3;
+                elseif startChip == 3
+                    startChip = 4;
+                end
+            end
+            if streak == 4
+                won = true;
+                break;
+            end
+        end
+    end
+ 
+    
     gameWon = won;
 end
