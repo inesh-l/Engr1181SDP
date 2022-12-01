@@ -16,11 +16,10 @@ board=empty * ones(7,7);
 board(1,:)=controls;
 % Draw the board itself
 drawScene(board_scene,board);
-board()
 % Drop a chip
 turn = 3;
 while true
-    [won, winner] = checkWin(board)
+    [won, winner] = checkWin(board);
     if won == true
         gameWinner = winner;
         if gameWinner == 3

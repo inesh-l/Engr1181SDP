@@ -12,12 +12,12 @@ function [gameWon, gameWinner] = checkWin(board)
         startChip = 3;
         for j=7:-1:2
             if board(j,i) == startChip
-                streak = streak + 1;
+                streak = streak + 1
             else
                 streak = 1;
                 if board(j,i) == 3
                     startChip = 3;
-                elseif board(j,1) == 4
+                elseif board(j,i) == 4
                     startChip = 4;
                 end
             end
@@ -38,7 +38,6 @@ function [gameWon, gameWinner] = checkWin(board)
         for j=1:7
             if board(i,j) == startChip
                 streak = streak + 1;
-                fprintf("%i %i",i,j);
             else
                 streak = 1;
                 if board(i,j) == 3
