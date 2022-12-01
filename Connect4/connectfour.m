@@ -20,8 +20,14 @@ board()
 % Drop a chip
 turn = 3;
 while true
-    won = checkWin(board)
+    [won, winner] = checkWin(board)
     if won == true
+        gameWinner = winner;
+        if gameWinner == 3
+            title("Yellow Wins!");
+        elseif gameWinner == 4
+            title("Red Wins!");
+        end
         break;
     end
     colSelect = getKeyboardInput(board_scene);

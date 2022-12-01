@@ -1,7 +1,8 @@
-function gameWon = checkWin(board)
+function [gameWon, gameWinner] = checkWin(board)
 %Checks for game win
 %   Goes over every row, column and diagonal, checking if the game is won.
     won = false;
+    winner = 0;
     % COL WIN
     for i=1:1:7
         if won == true
@@ -22,6 +23,7 @@ function gameWon = checkWin(board)
             end
             if streak == 4
                 won = true;
+                winner = startChip;
                 break;
             end
         end
@@ -35,7 +37,7 @@ function gameWon = checkWin(board)
         startChip = 3;
         for j=1:7
             if board(i,j) == startChip
-                streak = streak + 1
+                streak = streak + 1;
                 fprintf("%i %i",i,j);
             else
                 streak = 1;
@@ -47,6 +49,7 @@ function gameWon = checkWin(board)
             end
             if streak == 4
                 won = true;
+                winner = startChip;
                 break;
             end
         end
@@ -72,6 +75,7 @@ function gameWon = checkWin(board)
             end
             if streak == 4
                 won = true;
+                winner = startChip;
                 break;
             end
         end
@@ -94,6 +98,7 @@ function gameWon = checkWin(board)
                 end
             end
             if streak == 4
+                winner = startChip;
                 won = true;
                 break;
             end
@@ -120,6 +125,7 @@ function gameWon = checkWin(board)
             end
             if streak == 4
                 won = true;
+                winner = startChip;
                 break;
             end
         end
@@ -143,9 +149,11 @@ function gameWon = checkWin(board)
             end
             if streak == 4
                 won = true;
+                winner = startChip;
                 break;
             end
         end
     end
     gameWon = won;
+    gameWinner = winner;
 end
