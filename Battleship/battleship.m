@@ -26,8 +26,6 @@ drawScene(splashscreen,splashy)
 sSize_2 = 63;
 zFactor_2 = 3;
 BGC = [167 177 183];
-
-%WARNING, sprite sheet not completed, game will not run
 main_game = simpleGameEngine('SpriteSheet.png',sSize_2,sSize_2,zFactor_2,BGC);
 
 %Game Objects
@@ -39,26 +37,21 @@ hidden_tall_green= 5;
 dirt_sprite = 6;
 hit_steak_sprite = 7;
 
-%Creating the Board
-board_image = grass_sprite*ones(7,7);
-drawScene(main_game,board_image)
-
 %Call function to generate cow placements
 turn= 15;
 board_image2 = CS_Randomizer;
+
+%Initialize Game Board
 drawScene(main_game,board_image2)
 title("Turns Remaining " + turn)
-%Gameplay Loop
 
-
+%Beginning Click to intialize matrix replacement
 [r, c] = getMouseInput(main_game);
 
 board_change = board_image2;
 
-%Count for turns
-
-
 %Change placement of block
+%If cow is found, it will appear for a brief second, and sound will play
 MOO = 1;
 score = 0;
 while turn >0
@@ -90,6 +83,8 @@ drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
 end
 
+%Similar, however a cow found in this block place a sizzle and turns into
+%steak
 sizzle = 2;
 turn= 15;
 score = 0;
@@ -126,7 +121,7 @@ end
 Transit = getMouseInput(main_game);
 
 
-%Win Screen when all cows hit (placeholder)
+%Win Screen after 30 turns
 
 sSize3 = 255;
 zFactor3 = 5;
@@ -139,6 +134,7 @@ win = 1;
 drawScene(win_screen,win)
 title("Your Score is " + score);
 
+%Exit Game
 ending = getMouseInput(win_screen);
 while ending == 1
     clear sound
