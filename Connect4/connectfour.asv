@@ -25,8 +25,8 @@ while true
         break;
     end
     colSelect = getKeyboardInput(board_scene);
-    if colSelect == "1" || colSelect == "2" || colSelect == "3" || colSelect == "4" || colSelect == "5" || colSelect == "6" || colSelect == "7"
-        colSelect = str2num(colSelect); 
+    if colSelect == 1 || colSelect == 2 || colSelect == 3 || colSelect == 4 || colSelect == 5 || colSelect == 6 || colSelect == 7
+    c  olSelect = str2num(colSelect); 
     
         for i=7:-1:2
             if board(i,colSelect) == 2
