@@ -85,6 +85,7 @@ end
 drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
  turn = turn-1;
+ 
 end
 
 sizzle = 2;
@@ -100,6 +101,7 @@ if board_change(r,c) == 3
     drawScene(main_game,board_change)
     score= score+1;
     xlabel(turn)
+    break turn = 1;
 elseif board_change(r,c) == 5
     board_change(r,c) = 1;
     drawScene(main_game,board_change)
@@ -117,6 +119,11 @@ end
 drawScene(main_game,board_change)
 [r, c] = getMouseInput(main_game);
  turn = turn-1;
+ for turn = turn
+ if turn = 1;
+        break
+ end
+ end
 end
 Transit = getMouseInput(main_game);
 
