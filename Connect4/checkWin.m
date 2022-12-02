@@ -10,11 +10,15 @@ function [gameWon, gameWinner] = checkWin(board)
         end
         streak = 0;
         startChip = 3;
-        for j=7:-1:2
+        for j=7:-1:1
             if board(j,i) == startChip
-                streak = streak + 1
+                streak = streak + 1;
             else
-                streak = 1;
+                if board(j,i) == 2
+                    streak = 0;
+                elseif board(j,i) == 3 || board(j,i) == 4
+                    streak = 1;
+                end
                 if board(j,i) == 3
                     startChip = 3;
                 elseif board(j,i) == 4
@@ -33,13 +37,18 @@ function [gameWon, gameWinner] = checkWin(board)
         if won == true
             break;
         end
-        streak = 0;
         startChip = 3;
+        streak = 0;
         for j=1:7
             if board(i,j) == startChip
                 streak = streak + 1;
+                fprintf("%i %i", i, j);
             else
-                streak = 1;
+                if board(i,j) == 2
+                    streak = 0;
+                elseif board(i,j) == 3 || board(i,j) == 4
+                    streak = 1;
+                end
                 if board(i,j) == 3
                     startChip = 3;
                 elseif board(i,j) == 4
@@ -65,7 +74,11 @@ function [gameWon, gameWinner] = checkWin(board)
             if board(i-(j-1),j) == startChip
                 streak = streak + 1;
             else
-                streak = 1;
+                if board(i-(j-1),j) == 2
+                    streak = 0;
+                elseif board(i-(j-1),j) == 3 || board(i-(j-1),j) == 4
+                    streak = 1;
+                end
                 if board(i-(j-1),j) == 3
                     startChip = 3;
                 elseif board(i-(j-1),j) == 4
