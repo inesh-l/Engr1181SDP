@@ -19,7 +19,7 @@ drawScene(board_scene,board);
 % Drop a chip
 turn = 3;
 while true
-    [won, winner] = checkWin(board);
+    [won, winner] = checkWin(board)
     if won == true
         gameWinner = winner;
         if gameWinner == 3
